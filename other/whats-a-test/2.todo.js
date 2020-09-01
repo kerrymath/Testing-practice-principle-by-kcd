@@ -15,12 +15,27 @@ Then run this code with `node 2.todo`
 
  */
 
+const expect = (actual) => {
+  return {
+    toBe(expected) {
+      if (actual !== expected) {
+        throw new Error(`${result} is not equal to ${expected}`)
+      }
+    },
+    chain(flow){console.log( `boy ${flow}`) }
+  }
+}
+
 const {sum, subtract} = require('./math')
 
 let result, expected
 
 result = sum(3, 7)
 expected = 10
+
+expect(result).chain('food')
+expect(result).toBe(expected)
+
 if (result !== expected) {
   throw new Error(`${result} is not equal to ${expected}`)
 }
